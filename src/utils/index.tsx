@@ -7,8 +7,13 @@ export const MainScale = styled.div`
     overflow-y: auto;
 `;
 
-export const MainContainer = styled.div`
+export const BasicColumnFlex = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+`;
+
+export const BasicRowFlex = styled.div`
+    display: flex;
+    flex-direction: row;
 `;

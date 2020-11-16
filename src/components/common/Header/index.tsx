@@ -12,13 +12,17 @@ interface HeaderProps {
   
 
 const Header = ({location}: HeaderProps) => {
-    return(
-        <header>
-            <Link to="/" id="home-link">
-                <Logo pathname={location.pathname}/>
-            </Link>
-        </header>
-    )
+    switch(location.pathname){
+        case "/search" : 
+            return(
+                <header>
+                    <Link to="/" id="home-link">
+                        <Logo pathname={location.pathname}/>
+                    </Link>
+                </header>
+            )
+    }
+    return <header></header>
 }
 
 export default Header;
