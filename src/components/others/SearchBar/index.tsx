@@ -1,19 +1,33 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import SearchValueContext from '../../../context';
+import { letterValidation } from '../../../utils';
 import './index.css';
 
-type SearchBarProps = {
-    onCreate: (value: string) => void;
-}
+const SearchBar = () => {
+    const location = useHistory();
+    const [target, setTarget] = useState<string>("");
+    const {setSearchValue} = useContext(SearchValueContext)
+
+    useEffect(() => {
+       async function setContext(){
+            const targetProcessed = target.replace(/\s+/g, ''); 
+            await setSearchValue(targetProcessed);
+       }
+       setContext();
+    }, [setSearchValue, target, location])
 
 
-const SearchBar = ({onCreate}: SearchBarProps) => {
-    const [searchValue, setSearchValue] = useState<string>("");
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchValue(e.target.value);
+        setTarget(e.target.value);
     }
+
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        onCreate(searchValue);
+        const targetProcessed = target.replace(/\s+/g, ''); 
+        if(targetProcessed !== undefined && letterValidation(targetProcessed)){
+            location.push("/search");
+        }
     };
 
     return(
@@ -21,7 +35,7 @@ const SearchBar = ({onCreate}: SearchBarProps) => {
             <form onSubmit={handleSubmit}>
                 <div className="search-bar">
                     <span className="material-icons-round search-icon">search</span>
-                    <input type="text" value={searchValue} onChange={onChange} maxLength={20}/>
+                    <input type="text" value={target} onChange={onChange} maxLength={20}/>
                 </div>
             </form>
         </div>

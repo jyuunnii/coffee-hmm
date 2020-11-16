@@ -8,10 +8,11 @@ interface HeaderProps {
     location: {
       pathname: string;
     };
+    searchValue: string;
 }
   
 
-const Header = ({location}: HeaderProps) => {
+const Header = ({location, searchValue}: HeaderProps) => {
     switch(location.pathname){
         case "/search" : 
             return(
