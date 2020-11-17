@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { moveDownOrRight, moveUpOrLeft, slideImageSize, slidePosition } from '../../../utils/function';
+import { moveDownOrRight, moveUpOrLeft, openSearch, slideImageSize, slidePosition } from '../../../utils/function';
+import { StyledRowFlex } from '../../../utils/styled';
 import { CafeInfo } from '../../../utils/type';
 import { getAllCafesByName } from '../../api';
 import CafeListOneCafe from '../CafeListOneCafe';
@@ -34,10 +35,15 @@ const CafeList = ({searchValue}: CafeListProps) => {
             <div className="search-result">
             {cafes?.map((cafe, index) => {
                 return(
-                        <div key={cafe.id}  className="cafe" style={{
-                            top: currentIndex === index? slidePosition(index, currentIndex, CENTER, TOP, BOTTOM): slidePosition(index, currentIndex, CENTER, TOP, BOTTOM)
-                        }}>
-                            <CafeListOneCafe cafe={cafe} isBig={slideImageSize(index, currentIndex)}/>
+                    <div key={cafe.id}  className="cafe" style={{
+                        top: currentIndex === index? slidePosition(index, currentIndex, CENTER, TOP, BOTTOM): slidePosition(index, currentIndex, CENTER, TOP, BOTTOM)
+                    }}>
+                        <CafeListOneCafe cafe={cafe} isBig={slideImageSize(index, currentIndex)}/>
+                        <StyledRowFlex className="link-button-wrapper">
+                            <button className="link-button" onClick={() => openSearch(cafe.name,"Instagram")}>Insta</button>           
+                            <button className="link-button" onClick={() => openSearch(cafe.name+" "+cafe.place, "Naver")}>Naver</button>
+                            <button className="link-button">Hmm</button>
+                        </StyledRowFlex>
                     </div>)
             })}
             </div>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Alef&family=Poor+Story&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alef&family=Modak&family=Poor+Story&display=swap');
 
 div {
     font-family: 'Poor Story', cursive;
@@ -23,3 +23,24 @@ div {
     position: absolute;
     transition: all 0.5s ease 0s;
 }
+
+.link-button {
+    font-family: 'Modak', cursive;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 18px;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: -1px 0 #524F4A, 0 1px #524F4A, 1px 0 #524F4A, 0 -1px #524F4A;
+
+    padding: 10px;
+}
+
+.link-button-wrapper {
+    position: absolute;
+    bottom: 16px;
+    right: 20px;
+    z-index: 1;
+}
+
