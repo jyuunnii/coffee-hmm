@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { BIG_CAFE_IMAGE_SIZE, SMALL_CAFE_IMAGE_SIZE } from '../../../utils/constant';
+import { onImageLoad } from '../../../utils/function';
 import { StyledSpinnerContainer } from '../../../utils/styled';
 import { CafeInfo } from '../../../utils/type';
 import Spinner from '../../common/Spinner';
+import CafeDetail from '../CafeDetail';
 import './index.css';
 
 type CafeListOneCafeProps = {
@@ -12,10 +14,8 @@ type CafeListOneCafeProps = {
 
 const CafeListOneCafe = ({cafe, isBig}: CafeListOneCafeProps) => {
     const [isImageReady, setIsImageReady] = useState<boolean>(false);
-    const onImageLoad = () => {
-      setIsImageReady(true);
-    };
-  
+    const [isClicked, setIsClicked] = useState<boolean>(false);
+
     return(
         <div>
              <div className="cafe-box">
@@ -23,10 +23,14 @@ const CafeListOneCafe = ({cafe, isBig}: CafeListOneCafeProps) => {
                 style={{display: isImageReady ? "initial" : "none", 
                         width: isBig? `${BIG_CAFE_IMAGE_SIZE}px` : `${SMALL_CAFE_IMAGE_SIZE}px`,
                         height: isBig? `${BIG_CAFE_IMAGE_SIZE}px`: `${SMALL_CAFE_IMAGE_SIZE}px`}} 
-                onLoad={onImageLoad}/>
+                onLoad={() => onImageLoad(setIsImageReady)}
+                onClick={() => setIsClicked(true)}/>
                 <StyledSpinnerContainer visible={!isImageReady} size={360}>
                     <Spinner size={24}/>
                 </StyledSpinnerContainer>
+            </div>
+            <div className="cafe-detail" style={{display: isClicked? "block" : "none"}}>
+                <CafeDetail cafe={cafe} setIsClicked={setIsClicked}/>
             </div>
         </div>
        

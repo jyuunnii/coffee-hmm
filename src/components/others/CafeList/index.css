@@ -6,6 +6,11 @@ div {
     font-weight: normal;
 }
 
+.search-header{
+    padding-left: 24px;
+    padding-top: 24px;
+}
+
 .search-result {
     width: 360px;
     height: 440px;

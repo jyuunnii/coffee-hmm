@@ -1,0 +1,17 @@
+.slide-box {
+    width: 320px;
+    height: 320px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.cafe-slide {
+    position: absolute;
+    transition: all 0.5s ease 0s;
+}
+
+.cafe-slide img{
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+}
