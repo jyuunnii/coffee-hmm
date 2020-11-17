@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { moveDownOrRight, moveUpOrLeft, openSearch, slideImageSize, slidePosition } from '../../../utils/function';
+import CopyToClipboard from "react-copy-to-clipboard";
+import { copyLink, moveDownOrRight, moveUpOrLeft, openSearch, slideImageSize, slidePosition } from '../../../utils/function';
 import { StyledRowFlex } from '../../../utils/styled';
 import { CafeInfo } from '../../../utils/type';
 import { getAllCafesByName } from '../../api';
@@ -31,9 +32,10 @@ const CafeList = ({searchValue}: CafeListProps) => {
 
     return(
         <div>
-            <div className="search-header">카페 검색 결과 <span>{cafes?.length}</span></div>
+            <div className="search-header">{searchValue} 카페 검색 결과 <span>{cafes?.length}</span></div>
             <div className="search-result">
             {cafes?.map((cafe, index) => {
+                const currentCopyLink = `https://coffee-hmm.inhibitor.io/cafe/${cafe.id}`;
                 return(
                     <div key={cafe.id}  className="cafe" style={{
                         top: currentIndex === index? slidePosition(index, currentIndex, CENTER, TOP, BOTTOM): slidePosition(index, currentIndex, CENTER, TOP, BOTTOM)
@@ -42,13 +44,15 @@ const CafeList = ({searchValue}: CafeListProps) => {
                         <StyledRowFlex className="link-button-wrapper">
                             <button className="link-button" onClick={() => openSearch(cafe.name,"Instagram")}>Insta</button>           
                             <button className="link-button" onClick={() => openSearch(cafe.name+" "+cafe.place, "Naver")}>Naver</button>
-                            <button className="link-button">Hmm</button>
+                            <CopyToClipboard text={currentCopyLink}>
+                                <button className="link-button" onClick={() => copyLink(cafe.name)}>Hmm</button>
+                            </CopyToClipboard>
                         </StyledRowFlex>
                     </div>)
             })}
             </div>
-            <button onClick={()=>moveUpOrLeft(currentIndex, setCurrentIndex)}>위로</button>
-            <button onClick={()=>moveDownOrRight(currentIndex, setCurrentIndex, cafes.length-1)}>아래로</button>
+            <button onClick={()=>moveUpOrLeft(currentIndex, setCurrentIndex)}>up</button>
+            <button onClick={()=>moveDownOrRight(currentIndex, setCurrentIndex, cafes.length-1)}>down</button>
         </div>
        
     )

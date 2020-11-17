@@ -117,5 +117,8 @@ export const openSearch = (searchedData: string, searchEngine: string) => {
       window.confirm("모바일 웹만 지원하는 서비스입니다.");
     }
     return;
-  };
+};
   
+export const copyLink = (cafeName: string | undefined) => {
+    window.confirm(cafeName + "\nHmm link copied!");
+};
