@@ -8,7 +8,13 @@ div {
 
 .search-result {
     width: 360px;
-    height: 476px;
-    overflow-y: auto;
+    height: 500px;
+    overflow: hidden;
     margin: 0 auto;
+    position: relative;
+}
+
+.cafe {
+    position: absolute;
+    transition: all 0.5s ease 0s;
 }
