@@ -34,11 +34,11 @@ const CafeList = ({searchValue}: CafeListProps) => {
             <div className="search-result">
             {cafes?.map((cafe, index) => {
                 return(
-                <div key={cafe.id}  className="cafe" style={{
-                    top: currentIndex === index? slidePosition(index, currentIndex, CENTER, TOP, BOTTOM): slidePosition(index, currentIndex, CENTER, TOP, BOTTOM)
-                }}>
-                      <CafeListOneCafe cafe={cafe} isBig={slideImageSize(index, currentIndex)}/>
-                </div>)
+                        <div key={cafe.id}  className="cafe" style={{
+                            top: currentIndex === index? slidePosition(index, currentIndex, CENTER, TOP, BOTTOM): slidePosition(index, currentIndex, CENTER, TOP, BOTTOM)
+                        }}>
+                            <CafeListOneCafe cafe={cafe} isBig={slideImageSize(index, currentIndex)}/>
+                    </div>)
             })}
             </div>
             <button onClick={()=>moveUpOrLeft(currentIndex, setCurrentIndex)}>위로</button>

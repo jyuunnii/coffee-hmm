@@ -11,8 +11,8 @@ type CafeImageSlideProps = {
 
 
 const MID = 0;
-const LEFT = -320;
-const RIGHT = 320;
+const LEFT = -330;
+const RIGHT = 330;
 
 const CafeImageSlide = ({cafe}: CafeImageSlideProps) => {
     const [currentIndex, setCurrentIndex] = useState(0);

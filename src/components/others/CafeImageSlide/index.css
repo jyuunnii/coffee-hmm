@@ -2,6 +2,7 @@
     width: 320px;
     height: 320px;
     margin: 0 auto;
+    padding-top: 120px;
     position: relative;
 }
 
@@ -14,4 +15,5 @@
     width: 320px;
     height: 320px;
     object-fit: cover;
+    border-radius: 12px;
 }
