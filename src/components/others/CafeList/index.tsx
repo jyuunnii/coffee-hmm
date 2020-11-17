@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import CopyToClipboard from "react-copy-to-clipboard";
-import { copyLink, moveDownOrRight, moveUpOrLeft, openSearch, slideImageSize, slidePosition } from '../../../utils/function';
-import { StyledRowFlex } from '../../../utils/styled';
+import { moveDownOrRight, moveUpOrLeft, slideImageSize, slidePosition } from '../../../utils/function';
 import { CafeInfo } from '../../../utils/type';
 import { getAllCafesByName } from '../../api';
 import CafeListOneCafe from '../CafeListOneCafe';
@@ -35,19 +33,11 @@ const CafeList = ({searchValue}: CafeListProps) => {
             <div className="search-header">{searchValue} 카페 검색 결과 <span>{cafes?.length}</span></div>
             <div className="search-result">
             {cafes?.map((cafe, index) => {
-                const currentCopyLink = `https://coffee-hmm.inhibitor.io/cafe/${cafe.id}`;
                 return(
                     <div key={cafe.id}  className="cafe" style={{
-                        top: currentIndex === index? slidePosition(index, currentIndex, CENTER, TOP, BOTTOM): slidePosition(index, currentIndex, CENTER, TOP, BOTTOM)
-                    }}>
-                        <CafeListOneCafe cafe={cafe} isBig={slideImageSize(index, currentIndex)}/>
-                        <StyledRowFlex className="link-button-wrapper">
-                            <button className="link-button" onClick={() => openSearch(cafe.name,"Instagram")}>Insta</button>           
-                            <button className="link-button" onClick={() => openSearch(cafe.name+" "+cafe.place, "Naver")}>Naver</button>
-                            <CopyToClipboard text={currentCopyLink}>
-                                <button className="link-button" onClick={() => copyLink(cafe.name)}>Hmm</button>
-                            </CopyToClipboard>
-                        </StyledRowFlex>
+                                            top: currentIndex === index? slidePosition(index, currentIndex, CENTER, TOP, BOTTOM): slidePosition(index, currentIndex, CENTER, TOP, BOTTOM)
+                                        }}>
+                        <CafeListOneCafe index={index} currentIndex={currentIndex} cafe={cafe} isBig={slideImageSize(index, currentIndex)}/>
                     </div>)
             })}
             </div>
