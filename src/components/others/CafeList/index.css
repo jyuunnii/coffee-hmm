@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Alef&family=Poor+Story&display=swap');
+
+div {
+    font-family: 'Poor Story', cursive;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.search-result {
+    width: 360px;
+    height: 476px;
+    overflow-y: auto;
+    margin: 0 auto;
+}

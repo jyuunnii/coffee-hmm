@@ -1,5 +1,5 @@
 import React from 'react';
-import { BasicColumnFlex, BasicRowFlex } from '../../../utils';
+import { BasicColumnFlex, BasicRowFlex } from '../../../utils/styled';
 import './index.css';
 
 const places: string[] =["성수동", "연남동", "한남동", "판교", "잠실"];

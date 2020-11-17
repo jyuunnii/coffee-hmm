@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import SearchValueContext from '../../../context';
-import { letterValidation } from '../../../utils';
+import { letterValidation } from '../../../utils/function';
 import './index.css';
 
 const SearchBar = () => {

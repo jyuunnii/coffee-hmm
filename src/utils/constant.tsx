@@ -1,0 +1,1 @@
+export const serverUrl = "https://ird14dr4ze.execute-api.ap-northeast-2.amazonaws.com/production/cafe";

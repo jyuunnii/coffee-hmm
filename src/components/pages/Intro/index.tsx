@@ -1,5 +1,5 @@
 import React from 'react';
-import { BasicColumnFlex, MainScale } from '../../../utils';
+import { BasicColumnFlex, MainScale } from '../../../utils/styled';
 import PlaceSlide from '../../others/PlaceSlide';
 import SearchBar from '../../others/SearchBar';
 import './index.css';

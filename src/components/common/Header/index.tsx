@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Logo from '../Logo';
+import { useHistory } from 'react-router-dom';
 import './index.css';
 
 
@@ -13,13 +12,14 @@ interface HeaderProps {
   
 
 const Header = ({location, searchValue}: HeaderProps) => {
+    const history = useHistory();
+
     switch(location.pathname){
         case "/search" : 
             return(
                 <header>
-                    <Link to="/" id="home-link">
-                        <Logo pathname={location.pathname}/>
-                    </Link>
+                    <button className="back-button" onClick={() => history.goBack()}><span className="material-icons">keyboard_arrow_left</span></button>
+                    <span className="header-searchvalue">{searchValue}</span>
                 </header>
             )
     }
