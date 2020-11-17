@@ -17,3 +17,12 @@ export const StyledRowFlex = styled.div`
     display: flex;
     flex-direction: row;
 `;
+
+export const StyledSpinnerContainer = styled.div<{ visible: boolean, size: number }>`
+    justify-content: center;
+    align-items: center;
+    display: none;
+    width: ${(props) => props.size}px;
+    height: ${(props) => props.size}px;
+    ${(props) => props.visible && "display: flex;"}
+`;
