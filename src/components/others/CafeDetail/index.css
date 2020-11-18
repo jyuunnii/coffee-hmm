@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Alef&family=Modak&family=Poor+Story&display=swap');
 
 .detail-close-button {
-   position: absolute;
-   top: 0px;
-   right: 0px;
+    color: #F2D6A2;
+    padding: 4px;
+    position: absolute;
+    top: 4px;
+    right: 4px;
 }
 
 .detail-info {
-    padding-bottom: 10px;
+    padding: 10px 20px;
 }
 
 .detail-info img {
@@ -21,8 +23,12 @@
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
-    padding: 10px;
+    padding-right: 10px;
     color: #ffffff;
+}
+
+.detail-button-wrapper {
+    text-align: center;
 }
 
 .detail-button {

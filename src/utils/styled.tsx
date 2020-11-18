@@ -18,6 +18,12 @@ export const StyledRowFlex = styled.div`
     flex-direction: row;
 `;
 
+export const StyledRowFlexCenter = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+`;
+
 export const StyledSpinnerContainer = styled.div<{ visible: boolean, size: number }>`
     justify-content: center;
     align-items: center;

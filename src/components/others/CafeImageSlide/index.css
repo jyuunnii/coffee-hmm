@@ -2,7 +2,7 @@
     width: 320px;
     height: 320px;
     margin: 0 auto;
-    padding-top: 20px;
+    padding-top: 50px;
     position: relative;
 }
 
@@ -21,7 +21,7 @@
 .slide-box button {
     font-family: 'Poor Story', cursive;
     font-weight: normal;
-    font-size: 10px;
+    font-size: 12px;
     color: #ffffff;
     padding: 140px 10px;
 }
