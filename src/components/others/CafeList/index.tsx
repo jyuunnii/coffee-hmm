@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { moveDownOrRight, moveUpOrLeft, slideImageSize, slidePosition } from '../../../utils/function';
+import { StyledColumnFlex } from '../../../utils/styled';
 import { CafeInfo } from '../../../utils/type';
 import { getAllCafesByName } from '../../api';
 import CafeListOneCafe from '../CafeListOneCafe';
+import NoSearchResult from '../NoSearchResult';
 import './index.css';
 
 type CafeListProps = {
@@ -28,6 +30,17 @@ const CafeList = ({searchValue}: CafeListProps) => {
         }
     }, [searchValue])
 
+
+    const isEmptyArray = (array: CafeInfo[]) => {
+        return (! Array.isArray(array) || !array.length );
+    }
+
+    if(isEmptyArray(cafes)){
+        return(
+            <NoSearchResult searchValue={searchValue}/>
+        )
+    }
+
     return(
         <div>
             <div className="search-header">{searchValue} 카페 검색 결과 <span>{cafes?.length}</span></div>
@@ -40,9 +53,11 @@ const CafeList = ({searchValue}: CafeListProps) => {
                         <CafeListOneCafe index={index} currentIndex={currentIndex} cafe={cafe} isBig={slideImageSize(index, currentIndex)}/>
                     </div>)
             })}
+            <StyledColumnFlex className="result-button-wrapper">
+                <button onClick={()=>moveUpOrLeft(currentIndex, setCurrentIndex)}><img src="/images/icon9.png" alt="up"/>up</button>
+                <button onClick={()=>moveDownOrRight(currentIndex, setCurrentIndex, cafes.length-1)}> <img src="/images/icon11.png" alt="down"/> down</button>
+            </StyledColumnFlex>
             </div>
-            <button onClick={()=>moveUpOrLeft(currentIndex, setCurrentIndex)}>up</button>
-            <button onClick={()=>moveDownOrRight(currentIndex, setCurrentIndex, cafes.length-1)}>down</button>
         </div>
        
     )

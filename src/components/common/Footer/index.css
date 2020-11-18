@@ -8,5 +8,13 @@ footer {
 }
 
 footer a{
+    width: 100px;
+    text-align: center;
     text-decoration: none;
+    color: #dbdbdb;
+}
+
+footer span {
+    display: block;
+    
 }

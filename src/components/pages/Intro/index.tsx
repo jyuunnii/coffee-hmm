@@ -10,7 +10,7 @@ const Intro = () => {
             <StyledColumnFlex className="intro">
                 <h2>Coffee Hmm</h2>
                 <SearchBar/>
-                <h4>Recommend...</h4>
+                <h3>Recommend...</h3>
                 <PlaceSlide/>
             </StyledColumnFlex>
         </StyledMainScale>
