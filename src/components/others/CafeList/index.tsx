@@ -3,6 +3,7 @@ import { moveDownOrRight, moveUpOrLeft, slideImageSize, slidePosition } from '..
 import { CafeInfo } from '../../../utils/type';
 import { getAllCafesByName } from '../../api';
 import CafeListOneCafe from '../CafeListOneCafe';
+import NoSearchResult from '../NoSearchResult';
 import './index.css';
 
 type CafeListProps = {
@@ -27,6 +28,17 @@ const CafeList = ({searchValue}: CafeListProps) => {
             fetchData();
         }
     }, [searchValue])
+
+
+    const isEmptyArray = (array: CafeInfo[]) => {
+        return (! Array.isArray(array) || !array.length );
+    }
+
+    if(isEmptyArray(cafes)){
+        return(
+            <NoSearchResult searchValue={searchValue}/>
+        )
+    }
 
     return(
         <div>

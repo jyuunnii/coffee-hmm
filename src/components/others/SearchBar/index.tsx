@@ -35,7 +35,7 @@ const SearchBar = () => {
             <form onSubmit={handleSubmit}>
                 <div className="search-bar">
                     <span className="material-icons-round search-icon">search</span>
-                    <input type="text" value={target} onChange={onChange} maxLength={20}/>
+                    <input type="text" value={target} onChange={onChange} maxLength={14}/>
                 </div>
             </form>
         </div>
