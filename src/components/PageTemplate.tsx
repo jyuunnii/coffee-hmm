@@ -23,8 +23,12 @@ function getPageTransition(pathname: string){
   };
 }
 
+type props = {
+  searchValue: string;
+}
 
-const PageTemplate = () => {
+
+const PageTemplate = ({searchValue}: props) => {
   const location = useLocation();
   const routeTransition = useTransition(
     location,
@@ -54,7 +58,7 @@ const PageTemplate = () => {
             ...springProps,
           }}
         >
-          <Header location={item}/>
+          <Header location={item} searchValue={searchValue}/>
           <main>
             <Router location={item}/>
           </main>

@@ -1,4 +1,5 @@
 import React from 'react';
+import './index.css';
 
 type LogoProps = {
     pathname: string;
@@ -6,7 +7,7 @@ type LogoProps = {
 
 const Logo = ({pathname}: LogoProps) => {
     return(
-        <div> LOGO </div>
+        <div className="logo">Coffee Hmm</div>
     )
 }
 
