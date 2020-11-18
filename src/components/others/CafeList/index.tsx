@@ -45,19 +45,20 @@ const CafeList = ({searchValue}: CafeListProps) => {
         <div>
             <div className="search-header">{searchValue} 카페 검색 결과 <span>{cafes?.length}</span></div>
             <div className="search-result">
-            {cafes?.map((cafe, index) => {
-                return(
-                    <div key={cafe.id}  className="cafe" style={{
-                                            top: currentIndex === index? slidePosition(index, currentIndex, CENTER, TOP, BOTTOM): slidePosition(index, currentIndex, CENTER, TOP, BOTTOM)
-                                        }}>
-                        <CafeListOneCafe index={index} currentIndex={currentIndex} cafe={cafe} isBig={slideImageSize(index, currentIndex)}/>
-                    </div>)
-            })}
-            <StyledColumnFlex className="result-button-wrapper">
-                <button onClick={()=>moveUpOrLeft(currentIndex, setCurrentIndex)}><img src="/images/icon9.png" alt="up"/>up</button>
-                <button onClick={()=>moveDownOrRight(currentIndex, setCurrentIndex, cafes.length-1)}> <img src="/images/icon11.png" alt="down"/> down</button>
-            </StyledColumnFlex>
+                {cafes?.map((cafe, index) => {
+                    return(
+                        <div key={cafe.id}  className="cafe" style={{
+                                                top: currentIndex === index? slidePosition(index, currentIndex, CENTER, TOP, BOTTOM): slidePosition(index, currentIndex, CENTER, TOP, BOTTOM)
+                                            }}>
+                            <CafeListOneCafe index={index} currentIndex={currentIndex} cafe={cafe} isBig={slideImageSize(index, currentIndex)}/>
+                        </div>)
+                })}
+                <StyledColumnFlex className="result-button-wrapper">
+                    <button onClick={()=>moveUpOrLeft(currentIndex, setCurrentIndex)}><img src="/images/icon9.png" alt="up"/>up</button>
+                    <button onClick={()=>moveDownOrRight(currentIndex, setCurrentIndex, cafes.length-1)}> <img src="/images/icon11.png" alt="down"/> down</button>
+                </StyledColumnFlex>
             </div>
+            <div className="search-bottom">버튼을 눌러 카페를 확인하세요<span><img src="/images/arrow.png" alt="arrow"/></span></div>
         </div>
        
     )

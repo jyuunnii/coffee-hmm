@@ -120,5 +120,5 @@ export const openSearch = (searchedData: string, searchEngine: string) => {
 };
   
 export const copyLink = (cafeName: string | undefined) => {
-    window.confirm(cafeName + "\nHmm link copied!");
+    window.confirm(cafeName + "\n흠 링크가 복사되었습니다.");
 };

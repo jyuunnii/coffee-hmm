@@ -10,6 +10,7 @@ const places: string[] =["성수", "연남", "한남", "판교", "잠실"];
 const PlaceSlide = () => {
     const location = useHistory();
     const { searchValue, setSearchValue} = useContext(SearchValueContext);
+    const [isClicked, setClicked] = useState<boolean>(false);
     const [target, setTarget]  = useState<string>("");
     const [isImageReady, setIsImageReady] = useState<boolean>(false);
     const onImageLoad = () => {
@@ -20,14 +21,13 @@ const PlaceSlide = () => {
         async function setContext(){
             await setSearchValue(target);
         }
-        if(target !== ""){
+        if(isClicked){
             setContext();
-        }
-        if(searchValue !== "" && target !== ""){
             setTarget("");
-            location.push("/search")
+            setClicked(false);
+            location.push("/search");
         }
-    }, [ searchValue, setSearchValue, target, location])
+    }, [searchValue, setSearchValue, target, location, isClicked])
 
  
     return(
@@ -35,7 +35,10 @@ const PlaceSlide = () => {
         {places.map((place, index) => {
             return(
             <StyledColumnFlex className="card-wrapper" key={place}>
-                <div className="card-box" onClick={() => setTarget(place)}>
+                <div className="card-box" onClick={() => {
+                    setTarget(place);
+                    setClicked(true);
+                }}>
                     <StyledSpinnerContainer visible={!isImageReady} size={40}>
                         <Spinner size={18}/>
                     </StyledSpinnerContainer>

@@ -37,7 +37,7 @@ const CafeListOneCafe = ({index, currentIndex, cafe, isBig}: CafeListOneCafeProp
             </div>
             
             <div className="cafe-detail" style={{display: isClicked? "block" : "none"}}>
-                <CafeDetail index={index} cafe={cafe} setIsClicked={setIsClicked}/>
+                <CafeDetail cafe={cafe} setIsClicked={setIsClicked}/>
             </div>
         </div>
        
