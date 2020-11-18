@@ -23,7 +23,7 @@ const CafeImageSlide = ({cafe}: CafeImageSlideProps) => {
             <StyledRowFlex className="slide-box">
             {cafe.imageUris.map((image, index) => {
                 return(
-                    <div key={cafe.id}  className="cafe-slide" style={{
+                    <div key={index}  className="cafe-slide" style={{
                         left: currentIndex === index? slidePosition(index, currentIndex, MID, LEFT, RIGHT): slidePosition(index, currentIndex, MID, LEFT, RIGHT)
                     }}>
                         <img src={`https://${image}`} alt="img" onLoad={() => onImageLoad(setIsImageReady)}/>

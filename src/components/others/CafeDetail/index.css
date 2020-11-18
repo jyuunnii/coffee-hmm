@@ -1,3 +1,33 @@
-.detail-close {
+@import url('https://fonts.googleapis.com/css2?family=Alef&family=Modak&family=Poor+Story&display=swap');
+
+.detail {
     color: #ffffff;
+}
+
+.detail button {
+    color: #ffffff;
+}
+
+.detail-info {
+    padding-bottom: 10px;
+}
+
+.detail-info img {
+    width: 36px;
+    height: 36px;
+    padding: 10px;
+}
+
+.detail-info span{
+    font-family: 'Poor Story', cursive;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.detail-button {
+    font-family: 'Poor Story', cursive;
+    font-style: normal;
+    font-weight: normal;
 }

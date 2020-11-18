@@ -4,7 +4,7 @@
     width: 320px;
     height: 90px;
     overflow-x: auto;
-    margin-left: 40px;
+    padding-left: 40px;
 }
 
 .card-wrapper {

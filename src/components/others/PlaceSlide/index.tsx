@@ -1,26 +1,45 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import SearchValueContext from '../../../context';
 import { StyledRowFlex, StyledColumnFlex, StyledSpinnerContainer } from '../../../utils/styled';
 import Spinner from '../../common/Spinner';
 import './index.css';
 
-const places: string[] =["성수동", "연남동", "한남동", "판교", "잠실"];
+const places: string[] =["성수", "연남", "한남", "판교", "잠실"];
 
 const PlaceSlide = () => {
+    const location = useHistory();
+    const { searchValue, setSearchValue} = useContext(SearchValueContext);
+    const [target, setTarget]  = useState<string>("");
     const [isImageReady, setIsImageReady] = useState<boolean>(false);
     const onImageLoad = () => {
       setIsImageReady(true);
     };
+
+    useEffect(() => {
+        async function setContext(){
+            await setSearchValue(target);
+        }
+        if(target !== ""){
+            setContext();
+        }
+        if(searchValue !== "" && target !== ""){
+            setTarget("");
+            location.push("/search")
+        }
+    }, [ searchValue, setSearchValue, target, location])
+
  
     return(
         <StyledRowFlex className="card-container">
         {places.map((place, index) => {
             return(
             <StyledColumnFlex className="card-wrapper" key={place}>
-                <div className="card-box">
+                <div className="card-box" onClick={() => setTarget(place)}>
                     <StyledSpinnerContainer visible={!isImageReady} size={40}>
                         <Spinner size={18}/>
                     </StyledSpinnerContainer>
-                    <img src={`/images/icon${index%4+1}.png`} alt="icon" onLoad={onImageLoad}/>
+                    <img src={`/images/icon${index%10+1}.png`} alt="icon" onLoad={onImageLoad}/>
                     <span>#{place}카페</span>
                 </div>
             </StyledColumnFlex>)

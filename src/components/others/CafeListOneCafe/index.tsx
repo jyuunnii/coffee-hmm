@@ -8,11 +8,13 @@ import CafeDetail from '../CafeDetail';
 import './index.css';
 
 type CafeListOneCafeProps = {
+    index: number;
+    currentIndex: number;
     cafe: CafeInfo;
     isBig: boolean;
 }
 
-const CafeListOneCafe = ({cafe, isBig}: CafeListOneCafeProps) => {
+const CafeListOneCafe = ({index, currentIndex, cafe, isBig}: CafeListOneCafeProps) => {
     const [isImageReady, setIsImageReady] = useState<boolean>(false);
     const [isClicked, setIsClicked] = useState<boolean>(false);
 
@@ -27,10 +29,15 @@ const CafeListOneCafe = ({cafe, isBig}: CafeListOneCafeProps) => {
                 onClick={() => setIsClicked(true)}/>
                 <StyledSpinnerContainer visible={!isImageReady} size={360}>
                     <Spinner size={24}/>
-                </StyledSpinnerContainer>
+                </StyledSpinnerContainer> 
+                <div className="bottom-box" style={{display: index === currentIndex? "block" : "none"}}>
+                    <span className="count">999</span><span className="word">개의 좋아요</span>
+                    <span className="count">{cafe.viewCount}</span><span className="word">명이 봤어요</span>
+                </div>
             </div>
+            
             <div className="cafe-detail" style={{display: isClicked? "block" : "none"}}>
-                <CafeDetail cafe={cafe} setIsClicked={setIsClicked}/>
+                <CafeDetail index={index} cafe={cafe} setIsClicked={setIsClicked}/>
             </div>
         </div>
        
