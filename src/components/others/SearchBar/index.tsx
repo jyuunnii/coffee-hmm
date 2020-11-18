@@ -15,7 +15,7 @@ const SearchBar = () => {
             await setSearchValue(targetProcessed);
        }
        setContext();
-    }, [setSearchValue, target, location])
+    }, [setSearchValue, target])
 
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {

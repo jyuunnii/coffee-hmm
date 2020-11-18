@@ -26,14 +26,14 @@ div {
 }
 
 .cookie-img {
-    width: 72px;
-    height: 72px;
+    width: 36px;
+    height: 36px;
     object-fit: cover;
     display: inline-block;
 
     position: absolute;
-    bottom: 24px;
-    left: 184px;
+    bottom: 36px;
+    left: 200px;
 }
 
 .no-search-text {

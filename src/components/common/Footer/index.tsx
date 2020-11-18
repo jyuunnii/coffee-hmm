@@ -9,10 +9,11 @@ interface FooterProps {
 }
 
 const Footer = ({location}: FooterProps) => {
+    const pathname = location.pathname;
     return(
         <footer>
-            <Link to="/"><span className="material-icons">home</span>home</Link>
-            <Link to="/signin"><span className="material-icons">person</span>login</Link>
+            <Link to="/" style={{color: pathname === "/" ? "#524F4A" :  "#dbdbdb"}}><i className="material-icons">home</i><span>home</span></Link>
+            <Link to="/signin" style={{color: pathname === "/signin" ? "#524F4A" :  "#dbdbdb"}}><i className="material-icons">person</i><span>login</span></Link>
         </footer>
     )
 }
