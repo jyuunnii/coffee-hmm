@@ -17,3 +17,23 @@
     object-fit: cover;
     border-radius: 12px;
 }
+
+.slide-box button {
+    font-family: 'Poor Story', cursive;
+    font-weight: normal;
+    font-size: 10px;
+    color: #ffffff;
+    padding: 140px 10px;
+}
+
+.prev-button {
+    position: absolute;
+    left: 0px;
+    bottom: 8px;
+}
+
+.next-button {
+    position: absolute;
+    right: 0px;
+    bottom: 8px;
+}

@@ -18,7 +18,7 @@ const CafeDetail = ({ cafe, setIsClicked}: CafeDetailProps) => {
 
     return(
         <div>
-            <button className="detail-close" onClick={() => setIsClicked(false)}>close</button>
+            <button className="detail-close-button" onClick={() => setIsClicked(false)}><i className="material-icons">cancel</i></button>
             <CafeImageSlide cafe={cafe}/>
 
             <StyledColumnFlex>

@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Alef&family=Modak&family=Poor+Story&display=swap');
 
-.detail-close {
-    color: #ffffff;
+.detail-close-button {
+   position: absolute;
+   top: 0px;
+   right: 0px;
 }
 
 .detail-info {
